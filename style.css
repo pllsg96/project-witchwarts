@@ -6,20 +6,25 @@
 .trybewarts-login {
   display: flex;
 }
+
 main {
   display: flex;
 }
+
 #evaluation-form {
   display: flex;
   width: 675px;
   flex-direction: column;
-  flex-wrap: wrap;
 }
 
-#evaluation-form div{
+#evaluation-form div {
   display: flex;
 }
 
-#trybewarts-forms-logo{
+#trybewarts-forms-logo {
   height: 500px;
+}
+
+#evaluation-form section {
+  display: flex;
 }
