@@ -8,6 +8,12 @@ const senhaC = '123456';
 
 const emailC = 'tryber@teste.com';
 
+const agreementTerm = document.getElementById('agreement');
+
+const submitButton = document.getElementById('submit-btn');
+
+submitButton.disabled = 1;
+
 function entrar() {
   const emailV = email.value;
   const senhaV = senha.value;
@@ -18,3 +24,12 @@ function entrar() {
   }
 }
 botaoEntrar.addEventListener('click', entrar);
+
+function enableSubmit(event) {
+  if (event.target.checked) {
+    submitButton.disabled = 0;
+    return;
+  } submitButton.disabled = 1;
+}
+
+agreementTerm.addEventListener('change', enableSubmit);
