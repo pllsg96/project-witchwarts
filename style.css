@@ -14,7 +14,6 @@ main {
   width: 675px;
   flex-direction: column;
   flex-wrap: wrap;
-
 }
 
 #evaluation-form div{
