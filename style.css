@@ -17,11 +17,14 @@ main {
   flex-direction: column;
 }
 
-
 #trybewarts-forms-logo {
   height: 500px;
 }
 
 #evaluation-form section {
   display: flex;
+}
+
+#form-data{
+  display: hide;
 }
