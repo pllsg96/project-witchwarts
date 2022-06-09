@@ -4,13 +4,17 @@ const senha = document.getElementById('senha');
 
 const botaoEntrar = document.getElementById('entrar');
 
-const senhaC = '123456';
-
-const emailC = 'tryber@teste.com';
-
 const agreementTerm = document.getElementById('agreement');
 
 const submitButton = document.getElementById('submit-btn');
+
+const inputTextArea = document.getElementById('textarea');
+
+const inputCaracters = document.getElementById('counter');
+
+const senhaC = '123456';
+
+const emailC = 'tryber@teste.com';
 
 submitButton.disabled = 1;
 
@@ -31,5 +35,10 @@ function enableSubmit(event) {
     return;
   } submitButton.disabled = 1;
 }
-
 agreementTerm.addEventListener('change', enableSubmit);
+
+function howManyCharacters() {
+  const realCharLength = inputTextArea.value.length;
+  inputCaracters.innerText = (500 - realCharLength);
+}
+inputTextArea.addEventListener('input', howManyCharacters);
