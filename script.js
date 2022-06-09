@@ -8,6 +8,8 @@ const namePerson = document.getElementById('input-name');
 
 const lastnamePerson = document.getElementById('input-lastname');
 
+const inputEmail = document.getElementById('input-email');
+
 const house = document.getElementById('house');
 
 const family = document.getElementsByName('family');
@@ -24,13 +26,13 @@ const counterCaracters = document.getElementById('counter');
 
 const allFormData = document.getElementById('form-data');
 
+const rating = document.getElementsByName('rate');
+
 const senhaC = '123456';
 
 const emailC = 'tryber@teste.com';
 
-let sonOf;
-
-let myContent= [];
+const myContent = [];
 
 submitButton.disabled = 1;
 
@@ -62,7 +64,7 @@ inputTextArea.addEventListener('input', howManyCharacters);
 function whoIsMyFamily() {
   for (let index = 0; index < family.length; index += 1) {
     if (family[index].checked === true) {
-      sonOf = family[index].value;
+      return family[index].value;
     }
   }
 }
@@ -70,22 +72,30 @@ function whoIsMyFamily() {
 function howManyContents() {
   for (let index = 0; index < content.length; index += 1) {
     if (content[index].checked === true) {
-      // console.log(content[index].value);
       myContent.push(content[index].value);
     }
   }
 }
 
+function rateValue() {
+  for (let index = 0; index < rating.length; index += 1) {
+    if (rating[index].checked === true) {
+      return rating[index].value;
+    }
+  }
+}
+
 function sendForm() {
-  whoIsMyFamily();
   howManyContents();
-  let formConstruction = allFormData.innerText;
-  formConstruction = `Nome: -${namePerson.value}- -${lastnamePerson.value}-
-Email: -${email.value}-
-Casa: -${house.value}-
-Familia: -${sonOf}-
-Matérias: -${myContent}-`;
-  // console.log(myContent.split(','));
-  console.log(formConstruction);
+  allFormData.innerText = `Nome: ${namePerson.value} ${lastnamePerson.value}
+Email: ${inputEmail.value}
+Casa: ${house.value}
+Família: ${whoIsMyFamily()}
+Matérias: ${myContent.join(', ')}
+Avaliação: ${rateValue()}
+Observações: ${inputTextArea.value}`;
+  document.getElementById('evaluation-form').style.display = 'none';
+  document.getElementById('submit-btn').style.display = 'none';
+  allFormData.style.display = 'flex';
 }
 submitButton.addEventListener('click', sendForm);
