@@ -98,4 +98,4 @@ Observações: ${inputTextArea.value}`;
   document.getElementById('submit-btn').style.display = 'none';
   allFormData.style.display = 'flex';
 }
-submitButton.addEventListener('click', sendForm); //
+submitButton.addEventListener('click', sendForm);
